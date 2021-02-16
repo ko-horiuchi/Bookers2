@@ -1,0 +1,30 @@
+<main>
+  <p id="notice"><%= notice %></p>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          
+        <h1>Editing Book</h1>
+        
+        <%= render 'layouts/error_messages', model: @book %>
+        <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+        
+        <h6>Title</h6>
+        <%= f.text_field :title, class: "col-md-12 mb-3" %>
+        <h6>Opinion</h6>
+        <%= f.text_area :body, class: "col-md-12 mb-3" %>
+        </br>
+        <%= f.submit 'Update Book', class: "btn btn-success mb-3" %>
+        <% end %>
+        
+        <p>
+        <%= link_to "Show", @book %>
+        |
+        <%= link_to "Back", books_path %>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+</main>
